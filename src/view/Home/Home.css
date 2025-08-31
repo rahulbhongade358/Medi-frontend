@@ -1,0 +1,66 @@
+.user-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.user-card h2 {
+  margin: 0 0 8px 0;
+}
+
+.user-card p {
+  margin: 4px 0;
+}
+.user-info {
+  flex: 1;
+  padding: 10px;
+}
+
+.user-contact {
+  flex: 1;
+  padding: 10px;
+}
+
+.user-actions {
+  justify-items: center;
+  align-items: center;
+  display: flex;
+  padding: 10px;
+}
+.user-actions button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+}
+.approve-button {
+  background-color: #28a745;
+}
+.reject-button {
+  background-color: #dc3545;
+}
+.user-actions button:hover {
+  opacity: 0.7;
+  transform: scale(1.05);
+}
+.fab{
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+.fab:hover{
+  background-color: grey;
+  transform: scale(1.05);
+}
