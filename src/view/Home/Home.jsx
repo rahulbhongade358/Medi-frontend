@@ -7,7 +7,7 @@ const Home = () => {
   const [users, setUsers] = useState([]);
   const LoadUser = async () => {
     const userResponse = await axios.get(
-      `${import.meta.env.VITE_API_URL}/registeredusers`
+      "http://localhost:8080/registeredusers"
     );
     setUsers(userResponse.data.data);
   };
@@ -17,7 +17,7 @@ const Home = () => {
   }, []);
   const deleteUser = async (ID) => {
     const response = await axios.delete(
-      `${import.meta.env.VITE_API_URL}/registeredusers/${ID}`
+      `http://localhost:8080/registeredusers/${ID}`
     );
     if (response) {
       alert(response.data.message);
