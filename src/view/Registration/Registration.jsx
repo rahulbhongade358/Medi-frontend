@@ -20,7 +20,7 @@ const Registration = () => {
   });
   const Register = async () => {
     const response = await axios.post(
-      "http://localhost:8080/registeredusers",
+      `${import.meta.env.VITE_API_URL}/registeredusers`,
       newuser
     );
     if (response) {
