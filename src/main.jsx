@@ -4,12 +4,14 @@ import "./index.css";
 import Home from "./view/Home/Home.jsx";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Registration from "./view/Registration/Registration.jsx";
+import UserEdit from "./view/UserEdit/UserEdit.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/registration" element={<Registration />} />
+      <Route path="/edituser/:ID" element={<UserEdit />} />
     </Routes>
   </BrowserRouter>
 );

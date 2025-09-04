@@ -64,3 +64,26 @@
   background-color: grey;
   transform: scale(1.05);
 }
+.loading-note {
+  border: 1px solid red;
+  padding: 10px;
+  margin: auto;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff3cd;
+  width: 70%;
+}
+.loading-note p {
+  margin: 0;
+  font-size: 20px;
+  color: #856404;
+}
+.close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #856404;
+}

@@ -5,6 +5,7 @@ import "./Home.css";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
+  const [noteVisible, setNoteVisible] = useState(true);
   const LoadUser = async () => {
     const userResponse = await axios.get(
       `${import.meta.env.VITE_API_URL}/registeredusers`
@@ -24,9 +25,33 @@ const Home = () => {
       LoadUser();
     }
   };
-
+  const approveUser = async (ID, isApproved) => {
+    const response = await axios.patch(
+      `${import.meta.env.VITE_API_URL}/registeredusers/${ID}/verify`,
+      { isApproved }
+    );
+    console.log(ID, isApproved);
+    if (response) {
+      alert(response.data.message);
+      LoadUser();
+    }
+  };
+  const closeLoadingNote = () => {
+    setNoteVisible(false);
+  };
   return (
     <div>
+      {noteVisible && (
+        <div className="loading-note">
+          <p>
+            Note: be patient while loading the users..., it may take some time
+            because of free hosting
+          </p>
+          <button className="close-button" onClick={closeLoadingNote}>
+            X
+          </button>
+        </div>
+      )}
       <h1>Welcome to MEDI-FRONTEND</h1>
       <h2>Registered Users</h2>
       <div>
@@ -77,12 +102,22 @@ const Home = () => {
                   {registeredAt.replace("T", " ").substring(0, 19)}
                 </p>
               </div>
-              <div>
-                <button onClick={() => deleteUser(ID)}>Delete</button>
-              </div>
               <div className="user-actions">
-                <button className="approve-button">Approve</button>
-                <button className="reject-button">Reject</button>
+                <button>
+                  <Link to={`/edituser/${ID}`}>Edit</Link>
+                </button>
+                <button
+                  onClick={() => approveUser(ID, !isApproved)}
+                  className="approve-button"
+                >
+                  Approve
+                </button>
+                <button
+                  onClick={() => deleteUser(ID)}
+                  className="reject-button"
+                >
+                  Reject
+                </button>
               </div>
             </div>
           );
